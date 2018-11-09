@@ -13,11 +13,17 @@ export const getApps = () => {
 }
 
 export const addApp = (app) => {
-
+  return (dispatch) => {
+    axios.post('/api/apps', { app })
+      .then( res => dispatch({ type: ADD_APP, app: res.data }) )
+  }
 }
 
 export const updateApp = (app) => {
-
+  return (dispatch) => {
+    axios.put(`api/apps/${app.id}`, { app })
+      .then ( res => dispatch({ type: UPDATE_APP, app: res.data }) ) 
+  }
 }
 
 export const deleteApp = (id) => {
