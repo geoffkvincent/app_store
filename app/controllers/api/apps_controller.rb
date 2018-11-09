@@ -14,7 +14,7 @@ class Api::AppsController < ApplicationController
     if app.save
       render json: app
     else
-      render json: app.errors, 422
+      render json: app.errors, status: 422
     end
   end
 
@@ -22,7 +22,7 @@ class Api::AppsController < ApplicationController
     if @app.update(app_params)
       render json: @app
     else
-      render json: @app.errors, 422
+      render json: @app.errors, status: 422
     end
   end
 
