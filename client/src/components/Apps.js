@@ -13,9 +13,42 @@ class Apps extends React.Component {
   componentDidMount() {
     this.props.dispatch(getApps())
   }
+
+  apps = () => {
+    return this.props.apps.map(app => {
+      const { name, id, category, author, logo } = app
+      return(
+        <Card key={id}>
+          <Image src={logo} />
+          <Card.Content>
+            <Card.Header>
+              {name}
+            </Card.Header>
+            <Card.Meta>
+              <span>{author}</span>
+            </Card.Meta>
+            <Card.Description>
+              {category}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/apps/${app.id}`} >
+              View App
+            </Link>
+          </Card.Content>
+        </Card>
+      )
+    })
+  }
+
   render() {
     return (
-      null
+      <Container>
+        <Header as ="h3" textAlign="center" >Apps</Header>
+        <Card.Group itemsPerRow={4} stackable>
+          { this.apps() }
+        </Card.Group>
+      </Container>
     )
   }
 }
