@@ -6,7 +6,10 @@ const UPDATE_APP = 'UPDATE_APP'
 const DELETE_APP = 'DELETE_APP'
 
 export const getApps = () => {
-  axios.get('api/app')
+  return (dispatch) => {
+    axios.get('/api/apps')
+      .then( res => dispatch({ type: APPS, apps: res.data }) )
+  }
 }
 
 export const addApp = (app) => {
@@ -21,7 +24,7 @@ export const deleteApp = (id) => {
 
 }
 
-export default (state = [], action) {
+export default (state = [], action) => {
   switch(action.type) {
     case APPS:
       return action.apps
