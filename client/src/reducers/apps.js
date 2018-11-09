@@ -27,7 +27,10 @@ export const updateApp = (app) => {
 }
 
 export const deleteApp = (id) => {
-
+  return (dispatch) => {
+    axios.delete(`api/apps/${app.id}`)
+      .then( () => dispatch({ type: DELETE_APP, id }) )
+  }
 }
 
 export default (state = [], action) => {
