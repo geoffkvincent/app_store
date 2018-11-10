@@ -19,7 +19,7 @@ class Apps extends React.Component {
     this.props.dispatch(getApps())
   }
 
-  categoryOtions = () => {
+  categoryOptions = () => {
     const { categories } = this.props
     return categories.map( (c) => ({ key: c, text: c, value: c }) )
   }
@@ -72,6 +72,15 @@ class Apps extends React.Component {
           value={category}
           onChange={this.handleChange}
         />
+        {category &&
+          <Button
+            fluid
+            basic
+            onClick={ () => this.setState({ category: ''}) }
+            >
+              Clear Filter: {category}
+            </Button>
+        }
         <Card.Group itemsPerRow={4} stackable>
           { this.apps() }
         </Card.Group>
