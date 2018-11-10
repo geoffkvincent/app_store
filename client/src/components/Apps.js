@@ -67,7 +67,8 @@ class Apps extends React.Component {
 
 const mapStateToProps = (state) => {
   const {apps} = state
-  return { apps: state.apps }
+  const categories = [...new Set(apps.map( a => a.category))]
+  return { apps, categories }
 }
 
 export default connect(mapStateToProps)(Apps)
