@@ -15,6 +15,7 @@ const AppView = () => (
 const mapStateToProps = (state, props) => {
   const { id } = props.params.match
   const { apps } = state
+  const app = app.find( a => a.id === parseInt(id, 10) )
 }
 
 export default connect(mapStateToProps)(AppView)  
