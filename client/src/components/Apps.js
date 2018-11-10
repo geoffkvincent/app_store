@@ -60,9 +60,18 @@ class Apps extends React.Component {
   }
 
   render() {
+    const { category } = this.state
     return (
       <Container>
         <Header as ="h3" textAlign="center" >Apps</Header>
+        <Dropdown
+          placeholder='Filter by...'
+          fluid
+          selection
+          options={this.categoryOptions()}
+          value={category}
+          onChange={this.handleChange}
+        />
         <Card.Group itemsPerRow={4} stackable>
           { this.apps() }
         </Card.Group>
