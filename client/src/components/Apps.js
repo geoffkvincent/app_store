@@ -59,6 +59,10 @@ class Apps extends React.Component {
     })
   }
 
+  handleChange = (e, { value }) => {
+    this.setState({ category: value })
+  }
+
   render() {
     const { category } = this.state
     return (
@@ -81,6 +85,7 @@ class Apps extends React.Component {
               Clear Filter: {category}
             </Button>
         }
+        <Divider />
         <Card.Group itemsPerRow={4} stackable>
           { this.apps() }
         </Card.Group>
