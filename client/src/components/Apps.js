@@ -21,7 +21,7 @@ class Apps extends React.Component {
 
   categoryOtions = () => {
     const { categories } = this.props
-    return categories.map( (c) => { key: c, text: c, value: c } )
+    return categories.map( (c) => ({ key: c, text: c, value: c }) )
   }
 
   apps = () => {
