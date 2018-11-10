@@ -7,15 +7,27 @@ import {
   Header,
   Card,
   Image,
+  Dropdown,
+  Divider,
+  Button,
 } from 'semantic-ui-react'
 
 class Apps extends React.Component {
+  state= { category: '' }
   componentDidMount() {
     this.props.dispatch(getApps())
   }
 
   apps = () => {
-    return this.props.apps.map(app => {
+    const { apps } = this.props
+    const { category } = this.state
+    
+    let visible = apps
+
+    if (category)
+      visible = apps.filter( a => a.category === category )
+
+    return visible.map(app => {
       const { name, id, category, author, logo } = app
       return(
         <Card key={id}>
@@ -54,6 +66,7 @@ class Apps extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const {apps} = state
   return { apps: state.apps }
 }
 
