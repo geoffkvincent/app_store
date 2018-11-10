@@ -59,7 +59,7 @@ class Apps extends React.Component {
     })
   }
 
-  handleChange = (e, { value }) => {
+  handleChange = (_, { value }) => {
     this.setState({ category: value })
   }
 
