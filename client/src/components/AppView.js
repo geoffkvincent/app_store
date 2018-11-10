@@ -9,14 +9,15 @@ import {
   Table, 
 } from 'semantic-ui-react'
 
-const AppView = () => (
-  <div>Appview</div>
+const AppView = ({ app }) => (
+  <div>{app.name}</div>
 )
 
 const mapStateToProps = (state, props) => {
-  const { id } = props.params.match
+  const { id } = props.match.params
   const { apps } = state
-  const app = app.find( a => a.id === parseInt(id, 10) )
+  const app = apps.find( a => a.id === parseInt(id, 10) )
+  return {app}
 }
 
 export default connect(mapStateToProps)(AppView)  
