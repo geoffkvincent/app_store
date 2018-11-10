@@ -13,7 +13,8 @@ const AppView = () => (
 )
 
 const mapStateToProps = (state, props) => {
-  const { id }
+  const { id } = props.params.match
+  const { apps } = state
 }
 
-export default connect(mapStateToProps)(AppView)
+export default connect(mapStateToProps)(AppView)  
