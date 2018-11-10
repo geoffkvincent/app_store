@@ -14,6 +14,7 @@ import {
 
 class Apps extends React.Component {
   state= { category: '' }
+  
   componentDidMount() {
     this.props.dispatch(getApps())
   }
