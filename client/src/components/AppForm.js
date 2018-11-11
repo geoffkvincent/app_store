@@ -21,7 +21,7 @@ class AppForm extends React.Component {
   }
 
   handleSubmit = (e) => {
-
+  
   }
 
   render() {
@@ -67,6 +67,7 @@ class AppForm extends React.Component {
           onChange={this.handleChange}
           label="Author"
         />
+        <Form.Button>Save</Form.Button>
       </Form>
     )
   }
