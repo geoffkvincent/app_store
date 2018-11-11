@@ -27,6 +27,10 @@ class AppForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    const { closeForm, dispatch } = this.props
+    const func = this.state.id ? updateApp : addApp
+    dispatch(func(this.state))
+    closeForm()
   }
 
   render() {
