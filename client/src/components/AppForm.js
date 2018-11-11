@@ -17,11 +17,20 @@ class AppForm extends React.Component {
 
   handleChange = (e) => {
     const{ name, value} = e.target
-    this.setState({[name]: value})
+    this.setState({ [name]: value })
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
 
+  }
+
+  render() {
+    const { name, description, category, price, version, author } = this.props
+    return (
+      <Form>
+        
+      </Form>
+    )
   }
 }
 
