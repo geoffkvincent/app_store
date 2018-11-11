@@ -64,31 +64,41 @@ class Apps extends React.Component {
   }
 
   render() {
-    const { category } = this.state
+    const { category, showForm } = this.state
+
     return (
       <Container>
-        <Header as ="h3" textAlign="center" >Apps</Header>
-        <Dropdown
-          placeholder='Filter by...'
-          fluid
-          selection
-          options={this.categoryOptions()}
-          value={category}
-          onChange={this.handleChange}
-        />
-        {category &&
-          <Button
-            fluid
-            basic
-            onClick={ () => this.setState({ category: ''}) }
-            >
-              Clear Filter: {category}
-            </Button>
-        }
-        <Divider />
-        <Card.Group itemsPerRow={4} stackable>
-          { this.apps() }
-        </Card.Group>
+        <Header as="h3" textAlign="center">Apps</Header>
+        <Button onClick={this.toggleForm}>
+          { showForm ? 'Hide Form' : 'Show Form' }
+        </Button>
+        { showForm ?
+            <AppForm closeForm={this.toggleForm} />
+            :
+            <Fragment>
+              <Dropdown
+                placeholder="Filter by..."
+                fluid
+                selection
+                options={this.categoryOptions()}
+                value={category}
+                onChange={this.handleChange}
+              />
+              { category && 
+                  <Button
+                    fluid
+                    basic
+                    onClick={ () => this.setState({ category: '' }) }
+                  >
+                    Clear Filter: {category}
+                  </Button>
+              }
+              <Divider />
+              <Card.Group itemsPerRow={4} stackable>
+                { this.apps() }
+              </Card.Group>
+            </Fragment>
+          }
       </Container>
     )
   }
