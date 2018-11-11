@@ -16,7 +16,8 @@ class AppForm extends React.Component {
   state = {...this.initialState}
 
   static getDerivedStateFromProps(props, state) {
-    
+    if (props.id !== state.id)
+      return {...props}
   }
 
   handleChange = (e) => {
