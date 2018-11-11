@@ -25,10 +25,11 @@ class AppForm extends React.Component {
   }
 
   render() {
-    const { name, description, category, price, version, author } = this.props
+    const { name, description, category, price, version, author } = this.state
     return (
       <Form>
-        
+        <Form.Input 
+        />
       </Form>
     )
   }
