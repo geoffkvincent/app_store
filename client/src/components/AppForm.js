@@ -15,13 +15,17 @@ class AppForm extends React.Component {
 
   state = {...this.initialState}
 
+  static getDerivedStateFromProps(props, state) {
+    
+  }
+
   handleChange = (e) => {
     const{ name, value} = e.target
     this.setState({ [name]: value })
   }
 
   handleSubmit = (e) => {
-  
+    e.preventDefault()
   }
 
   render() {
