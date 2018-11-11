@@ -24,14 +24,14 @@ export const addApp = (app) => {
 
 export const updateApp = (app) => {
   return (dispatch) => {
-    axios.put(`api/apps/${app.id}`, { app })
+    axios.put(`/api/apps/${app.id}`, { app })
       .then ( res => dispatch({ type: UPDATE_APP, app: res.data }) ) 
   }
 }
 
 export const deleteApp = (id) => {
   return (dispatch) => {
-    axios.delete(`api/apps/${id}`)
+    axios.delete(`/api/apps/${id}`)
       .then( () => dispatch({ type: DELETE_APP, id }) )
   }
 }
