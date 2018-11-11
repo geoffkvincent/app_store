@@ -10,9 +10,14 @@ import {
   Divider,
   Button,
 } from 'semantic-ui-react'
+import AppForm from './AppForm'
 
 class Apps extends React.Component {
-  state = { category: '' }
+  state = { category: '', showForm: false }
+
+  toggleForm = () => {
+    
+  }
 
   categoryOptions = () => {
     const { categories } = this.props
