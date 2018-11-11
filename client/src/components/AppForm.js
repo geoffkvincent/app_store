@@ -29,6 +29,11 @@ class AppForm extends React.Component {
     return (
       <Form>
         <Form.Input 
+          name="name"
+          required
+          defaultValue={name}
+          onChange={this.handleChange}
+          label="Name"
         />
       </Form>
     )
