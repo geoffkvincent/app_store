@@ -7,7 +7,7 @@ import NoMatch from './components/NoMatch'
 const App = () => (
   <Switch>
     <Route exact path='/' component={Home} />
-    <Route exact path='/apps' component={FetchApps} />
+    <Route path='/apps' component={FetchApps} />
     <Route component={NoMatch} />
   </Switch>
 )

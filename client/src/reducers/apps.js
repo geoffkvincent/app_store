@@ -5,10 +5,13 @@ const ADD_APP = 'ADD_APP'
 const UPDATE_APP = 'UPDATE_APP'
 const DELETE_APP = 'DELETE_APP'
 
-export const getApps = () => {
+export const getApps = (cb) => {
   return (dispatch) => {
     axios.get('/api/apps')
-      .then( res => dispatch({ type: APPS, apps: res.data }) )
+      .then( res => {
+        dispatch({ type: APPS, apps: res.data }) 
+        cb()
+      })
   }
 }
 
