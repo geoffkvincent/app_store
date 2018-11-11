@@ -16,7 +16,7 @@ class Apps extends React.Component {
   state = { category: '', showForm: false }
 
   toggleForm = () => {
-    
+    this.setState({ showForm: !this.state.showForm })
   }
 
   categoryOptions = () => {
